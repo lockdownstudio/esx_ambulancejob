@@ -217,7 +217,7 @@ Config.AuthorizedVehicles = {
 		head_nurse = {
             {model = 'ambulance', price = 1},
             {model = 'dodgeems', price = 1}
-		}
+		},
 		doctor = {
             {model = 'ambulance', price = 1},
             {model = 'dodgeems', price = 1}
@@ -248,7 +248,7 @@ Config.AuthorizedVehicles = {
 
 		head_nurse = {
             {model = 'polmav', price = 1}
-        }
+        },
         
 		doctor = {
             {model = 'polmav', price = 1}
