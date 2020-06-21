@@ -10,7 +10,7 @@ Config.LoadIpl                    = true -- disable if you're using fivem-ipl or
 
 Config.Locale                     = 'en'
 
-Config.EarlyRespawnTimer          = 60000 * 10  -- time til respawn is available
+Config.EarlyRespawnTimer          = 60000 * 1  -- time til respawn is available
 Config.BleedoutTimer              = 60000 * 10 -- time til the player bleeds out
 
 Config.EnablePlayerManagement     = true
@@ -21,7 +21,7 @@ Config.RemoveItemsAfterRPDeath    = true
 
 -- Let the player pay for respawning early, only if he can afford it.
 Config.EarlyRespawnFine           = true
-Config.EarlyRespawnFineAmount     = 50000
+Config.EarlyRespawnFineAmount     = 5000
 
 Config.RespawnPoint = {coords = vector3(360.3, -586.3, 44.2), heading = 69.68}
 
@@ -203,71 +203,43 @@ Config.Hospitals = {
 
 Config.AuthorizedVehicles = {
 	car = {
-        training = {},
-
-		intern = {
-            {model = 'ambulance', price = 1}
+		ambulance = {
+            {model = 'ambulance', price = 1},
+            {model = 'ambulance2', price = 1},
 		},
 
-		nurse = {
-            {model = 'ambulance', price = 1},
-            {model = 'dodgeems', price = 1}
-		},
-
-		head_nurse = {
-            {model = 'ambulance', price = 1},
-            {model = 'dodgeems', price = 1}
-		}
 		doctor = {
             {model = 'ambulance', price = 1},
-            {model = 'dodgeems', price = 1}
+            {model = 'ambulance2', price = 1},
 		},
 
-		head_doc = {
+		chief_doctor = {
             {model = 'ambulance', price = 1},
-            {model = 'dodgeems', price = 1}
-		},
-
-		dep = {
-            {model = 'ambulance', price = 1},
-            {model = 'dodgeems', price = 1}
+            {model = 'ambulance2', price = 1},
 		},
 
 		boss = {
             {model = 'ambulance', price = 1},
-            {model = 'dodgeems', price = 1}
+            {model = 'ambulance2', price = 1},
 		}
 	},
 
 	helicopter = {
-        training = {},
+		ambulance = {},
 
-		intern = {},
-
-		nurse = {},
-
-		head_nurse = {
-            {model = 'polmav', price = 1}
-        }
-        
 		doctor = {
-            {model = 'polmav', price = 1}
+            {model = 'polmav', price = 1},
 		},
 
-		head_doc = {
+		chief_doctor = {
             {model = 'polmav', price = 1},
-            {model = 'seasparrow', price = 1}
-		},
-
-		dep = {
-            {model = 'polmav', price = 1},
-            {model = 'seasparrow', price = 1}
+            {model = 'seasparrow', price = 1},
+            
 		},
 
 		boss = {
-            {model = 'polmav', price = 1},
-            {model = 'seasparrow', price = 1}
-        }
-    }
-        
+			{model = 'polmav', price = 1},
+			{model = 'seasparrow', price = 1},
+		}
+	}
 }
