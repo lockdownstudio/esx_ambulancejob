@@ -1,5 +1,6 @@
 USE `es_extended`;
 
+--Additional ranks
 INSERT INTO `job_grades` (`job_name`, `grade`, `name`, `label`, `salary`, `skin_male`, `skin_female`) VALUES
 	('ambulance',4,'doctor', 'Doctor',20000,'{}','{}'),
 	('ambulance',5,'head_doc', 'Head Doctor',25000,'{}','{}'),
