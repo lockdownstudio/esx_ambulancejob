@@ -3,6 +3,9 @@ Config                            = {}
 Config.DrawDistance               = 100.0
 
 Config.Marker                     = {type = 1, x = 1.5, y = 1.5, z = 0.5, r = 255, g = 255, b = 255, a = 100, rotate = false}
+Config.MarkerType                 = 1
+Config.MarkerSize                 = {x = 1.5, y = 1.5, z = 0.5}
+Config.MarkerColor                = {r = 50, g = 50, b = 204}
 
 Config.ReviveReward               = 1000  -- revive reward, set to 0 if you don't want it enabled
 Config.AntiCombatLog              = true -- enable anti-combat logging?
@@ -14,6 +17,8 @@ Config.EarlyRespawnTimer          = 60000 * 10  -- time til respawn is available
 Config.BleedoutTimer              = 60000 * 10 -- time til the player bleeds out
 
 Config.EnablePlayerManagement     = true
+Config.EnableArmoryManagement     = true
+
 
 Config.RemoveWeaponsAfterRPDeath  = true
 Config.RemoveCashAfterRPDeath     = true
@@ -38,6 +43,10 @@ Config.Hospitals = {
 
 		AmbulanceActions = {
 			vector3(302.2, -598.7, 42.3)
+		},
+
+		Armories = {
+			vector3(298.57, -598.08, 43.28)
 		},
 
 		Pharmacies = {
@@ -107,7 +116,7 @@ Config.Hospitals = {
                 From = vector3(327.2, -603.2, 42.3),
 				To = {coords = vector3(319.3, -559.1, 27.7), heading = 18.50},
 				Marker = {type = 1, x = 1.5, y = 1.5, z = 0.5, r = 255, g = 255, b = 255, a = 100, rotate = false},
-                Prompt = _U('Parking')
+                Prompt = _U('Infirmary')
             }
         
             
@@ -130,6 +139,8 @@ Config.Hospitals = {
 
 		Pharmacies = {	
 		},
+
+		Armories = {},
 
 		Vehicles = {
 			{
@@ -165,6 +176,8 @@ Config.Hospitals = {
 
 		AmbulanceActions = {
 		},
+
+		Armories = {},
 
 		Pharmacies = {
 		},
@@ -270,4 +283,24 @@ Config.AuthorizedVehicles = {
         }
     }
         
+}
+
+Config.AuthorizedWeapons = {
+	training = {},
+	intern = {},
+	nurse = {},
+	head_nurse = {},
+	doctor = {},
+	head_doc = {},
+	dep = {},
+	boss =  {
+		{weapon = 'WEAPON_PISTOL', price = 1},
+		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 100, 400, nil}, price = 1},
+		{weapon = 'WEAPON_PUMPSHOTGUN', components = {200, 000, nil}, price = 1},
+		{weapon = 'WEAPON_FLASHLIGHT', price = 1},
+		{weapon = 'WEAPON_SPECIALCARBINE', price = 1},
+		{weapon = 'WEAPON_COMBATPDW', price = 1},
+		{weapon = 'GADGET_PARACHUTE', price = 1},
+        {weapon = 'WEAPON_BZGAS', price = 1}
+	}
 }

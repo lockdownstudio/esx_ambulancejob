@@ -47,6 +47,13 @@ Locales['en'] = {
   ['deposit_amount'] = 'deposit Amount',
   ['money_withdraw'] = 'amount withdrawn',
   ['fast_travel'] = 'press ~INPUT_CONTEXT~ to fast travel.',
+
+  ['SandyShores'] = 'press ~INPUT_CONTEXT~ to go to Sandy Shores HP',
+  ['LockdownHospital'] = 'press ~INPUT_CONTEXT~ to go to Lockdown HP',
+  ['PaletoHospital'] = 'press ~INPUT_CONTEXT~ to go to Paleto HP',
+  ['Infirmary'] = 'press ~INPUT_CONTEXT~ to go to Boiling Brooke',
+
+ 
   ['open_pharmacy'] = 'press ~INPUT_CONTEXT~ to open the pharmacy.',
   ['pharmacy_menu_title'] = 'pharmacy',
   ['pharmacy_take'] = 'take <span style="color:blue;">%s</span>',
@@ -60,6 +67,7 @@ Locales['en'] = {
   ['ems_menu_putincar'] = 'put in Vehicle',
   ['ems_menu_small'] = 'heal small wounds',
   ['ems_menu_big'] = 'treat serious injuries',
+  ['ems_menu_billing'] = 'billing',
   -- Phone
   ['alert_ambulance'] = 'alert Ambulance',
   -- Death
@@ -82,4 +90,30 @@ Locales['en'] = {
   -- Blips
   ['blip_hospital'] = 'hospital',
   ['blip_dead'] = 'unconscious player',
+  -- Armory
+  ['remove_object'] = 'withdraw object',
+  ['deposit_object'] = 'deposit object',
+  ['get_weapon'] = 'withdraw weapon from armory',
+  ['put_weapon'] = 'store weapon in armory',
+  ['buy_weapons'] = 'buy weapons',
+  ['armory'] = 'armory',
+  ['open_armory'] = 'press ~INPUT_CONTEXT~ to access the ~y~Armory~s~.',
+  ['armory_owned'] = 'owned',
+  ['armory_free'] = 'free',
+  ['armory_item'] = '$%s',
+  ['armory_weapontitle'] = 'armory - Buy weapon',
+  ['armory_componenttitle'] = 'armory - Weapon attatchments',
+  ['armory_bought'] = 'you bought an ~y~%s~s~ for ~g~$%s~s~',
+  ['armory_money'] = 'you cannot afford that weapon',
+  ['armory_hascomponent'] = 'you have that attatchment equiped!',
+  ['get_weapon_menu'] = 'armory - Withdraw Weapon',
+  ['put_weapon_menu'] = 'armory - Store Weapon',
+  ['quantity_invalid'] = 'invalid quantity',
+  ['have_withdrawn'] = 'you have withdrawn ~y~%sx~s~ ~b~%s~s~',
+  ['have_deposited'] = 'you have deposited ~y~%sx~s~ ~b~%s~s~',
+  ['quantity'] = 'quantity',
+  ['inventory'] = 'inventory',
+  ['ambulance_stock'] = 'Ambulance Stock',
+  ['confirm_no'] = 'no',
+  ['confirm_yes'] = 'yes',
 }
