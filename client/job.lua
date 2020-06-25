@@ -59,7 +59,7 @@ function OpenMobileAmbulanceActionsMenu()
 					
 					if data.current.value == 'revive' then
 						revivePlayer(closestPlayer)
-					elseif data.current.value == 'small' then
+					elseif data.current.value == 'billing' then
 						OpenBillingMenu()
 					elseif data.current.value == 'small' then
 						ESX.TriggerServerCallback('esx_ambulancejob:getItemAmount', function(quantity)
