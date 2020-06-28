@@ -11,6 +11,9 @@ Config.ReviveReward               = 1000  -- revive reward, set to 0 if you don'
 Config.AntiCombatLog              = true -- enable anti-combat logging?
 Config.LoadIpl                    = true -- disable if you're using fivem-ipl or other IPL loaders
 
+Config.EnableESXService           = true -- enable esx service?
+Config.MaxInService               = 30
+
 Config.Locale                     = 'en'
 
 Config.EarlyRespawnTimer          = 60000 * 10  -- time til respawn is available

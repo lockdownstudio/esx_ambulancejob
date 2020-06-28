@@ -7,6 +7,10 @@ TriggerEvent('esx_phone:registerNumber', 'ambulance', _U('alert_ambulance'), tru
 
 TriggerEvent('esx_society:registerSociety', 'ambulance', 'Ambulance', 'society_ambulance', 'society_ambulance', 'society_ambulance', {type = 'public'})
 
+if Config.EnableESXService then
+    TriggerEvent('esx_service:activateService', 'ambulance', Config.MaxInService)
+end
+
 RegisterNetEvent('esx_ambulancejob:revive')
 AddEventHandler('esx_ambulancejob:revive', function(playerId)
 	local xPlayer = ESX.GetPlayerFromId(source)
