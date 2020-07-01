@@ -3,6 +3,15 @@ local HasAlreadyEnteredMarker, LastHospital, LastPart, LastPartNum
 local isBusy, deadPlayers, deadPlayerBlips, isOnDuty = false, {}, {}, false
 isInShopMenu = false
 
+AddEventHandler('esx_phone:cancelMessage', function(dispatchNumber)
+	if ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and ESX.PlayerData.job.name == dispatchNumber then
+		-- if esx_service is enabled
+		if Config.EnableESXService and not playerInService then
+			CancelEvent()
+		end
+	end
+end)
+
 function OpenAmbulanceActionsMenu()
 	local elements = {{label = _U('cloakroom'), value = 'cloakroom'}}
 
@@ -711,6 +720,21 @@ AddEventHandler('esx_ambulancejob:hasExitedMarker', function(hospital, part, par
 	CurrentAction = nil
 end)
 
+function checkService()
+	if Config.EnableESXService then
+		ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
+			if not isInService then
+				ESX.ShowNotification(_U('service_not'))
+				return false
+			else
+				return true
+			end
+		end, 'ambulance')
+	else
+		return true
+	end
+end
+
 -- Key Controls
 Citizen.CreateThread(function()
 	while true do
@@ -721,24 +745,38 @@ Citizen.CreateThread(function()
 
 			if IsControlJustReleased(0, 38) then
 				if CurrentAction == 'AmbulanceActions' then
-					OpenAmbulanceActionsMenu()
+					if checkService() then
+						OpenAmbulanceActionsMenu()
+					end
 				elseif CurrentAction == 'Pharmacy' then
-					OpenPharmacyMenu()
+					if checkService() then
+						OpenPharmacyMenu()
+					end
 				elseif CurrentAction == 'Vehicles' then
-					OpenVehicleSpawnerMenu('car', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
+					if checkService() then
+						OpenVehicleSpawnerMenu('car', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
+					end
 				elseif CurrentAction == 'Helicopters' then
-					OpenVehicleSpawnerMenu('helicopter', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
+					if checkService() then
+						OpenVehicleSpawnerMenu('helicopter', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
+					end
 				elseif CurrentAction == 'FastTravelsPrompt' then
-					FastTravel(CurrentActionData.to, CurrentActionData.heading)
+					if checkService() then
+						FastTravel(CurrentActionData.to, CurrentActionData.heading)
+					end
 				elseif CurrentAction == 'menu_armory' then
-					OpenArmoryMenu(CurrentActionData.hospital)
+					if checkService() then
+						OpenArmoryMenu(CurrentActionData.hospital)
+					end
 				end
 				CurrentAction = nil
 			end
 
 		elseif ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and not isDead then
 			if IsControlJustReleased(0, 167) then
-				OpenMobileAmbulanceActionsMenu()
+				if checkService() then
+					OpenMobileAmbulanceActionsMenu()
+				end
 			end
 		else
 			Citizen.Wait(500)
