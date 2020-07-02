@@ -748,49 +748,24 @@ Citizen.CreateThread(function()
 
 			if IsControlJustReleased(0, 38) then
 				if CurrentAction == 'AmbulanceActions' then
-					ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-						if isInService then
-							OpenAmbulanceActionsMenu()
-						end
-					end, 'ambulance')
+					OpenAmbulanceActionsMenu()
 				elseif CurrentAction == 'Pharmacy' then
-					ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-						if isInService then
-							OpenPharmacyMenu()
-						end
-					end, 'ambulance')					
+					OpenPharmacyMenu()
 				elseif CurrentAction == 'Vehicles' then
-					ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-						if isInService then
-							OpenVehicleSpawnerMenu('car', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
-						end
-					end, 'ambulance')					
+					OpenVehicleSpawnerMenu('car', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
 				elseif CurrentAction == 'Helicopters' then
-					ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-						if isInService then
-							OpenVehicleSpawnerMenu('helicopter', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
-						end
-					end, 'ambulance')					
+					OpenVehicleSpawnerMenu('helicopter', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
 				elseif CurrentAction == 'FastTravelsPrompt' then
-						FastTravel(CurrentActionData.to, CurrentActionData.heading)
-					
+					FastTravel(CurrentActionData.to, CurrentActionData.heading)				
 				elseif CurrentAction == 'menu_armory' then
-					ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-						if isInService then
-							OpenArmoryMenu(CurrentActionData.hospital)
-						end
-					end, 'ambulance')					
+					OpenArmoryMenu(CurrentActionData.hospital)
 				end
 				CurrentAction = nil
 			end
 
 		elseif ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and not isDead then
 			if IsControlJustReleased(0, 167) then
-				ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
-					if isInService then
-						OpenMobileAmbulanceActionsMenu()
-					end
-				end, 'ambulance')
+				OpenMobileAmbulanceActionsMenu()
 			end
 		else
 			Citizen.Wait(500)
