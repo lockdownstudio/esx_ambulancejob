@@ -796,7 +796,7 @@ Citizen.CreateThread(function()
 			Citizen.Wait(500)
 		end
 	end
-end)o
+end)
 
 RegisterNetEvent('esx_ambulancejob:putInVehicle')
 AddEventHandler('esx_ambulancejob:putInVehicle', function()
