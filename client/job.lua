@@ -745,27 +745,27 @@ Citizen.CreateThread(function()
 
 			if IsControlJustReleased(0, 38) then
 				if CurrentAction == 'AmbulanceActions' then
-					if checkService() then
+					if checkService() == true then
 						OpenAmbulanceActionsMenu()
 					end
 				elseif CurrentAction == 'Pharmacy' then
-					if checkService() then
+					if checkService() == true then
 						OpenPharmacyMenu()
 					end
 				elseif CurrentAction == 'Vehicles' then
-					if checkService() then
+					if checkService() == true then
 						OpenVehicleSpawnerMenu('car', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
 					end
 				elseif CurrentAction == 'Helicopters' then
-					if checkService() then
+					if checkService() == true then
 						OpenVehicleSpawnerMenu('helicopter', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
 					end
 				elseif CurrentAction == 'FastTravelsPrompt' then
-					if checkService() then
+					if checkService() == true then
 						FastTravel(CurrentActionData.to, CurrentActionData.heading)
 					end
 				elseif CurrentAction == 'menu_armory' then
-					if checkService() then
+					if checkService() == true then
 						OpenArmoryMenu(CurrentActionData.hospital)
 					end
 				end
@@ -774,7 +774,7 @@ Citizen.CreateThread(function()
 
 		elseif ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and not isDead then
 			if IsControlJustReleased(0, 167) then
-				if checkService() then
+				if checkService() == true then
 					OpenMobileAmbulanceActionsMenu()
 				end
 			end

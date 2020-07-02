@@ -116,4 +116,5 @@ Locales['en'] = {
   ['ambulance_stock'] = 'Ambulance Stock',
   ['confirm_no'] = 'no',
   ['confirm_yes'] = 'yes',
+  ['service_not'] = 'you have not entered service! You\'ll have to get changed first.',
 }
