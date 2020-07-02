@@ -1,6 +1,7 @@
 local CurrentAction, CurrentActionMsg, CurrentActionData = nil, '', {}
 local HasAlreadyEnteredMarker, LastHospital, LastPart, LastPartNum
 local isBusy, deadPlayers, deadPlayerBlips, isOnDuty = false, {}, {}, false
+local playerInService = false
 isInShopMenu = false
 
 AddEventHandler('esx_phone:cancelMessage', function(dispatchNumber)
@@ -725,16 +726,13 @@ function checkService()
 		ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
 			if not isInService then
 				ESX.ShowNotification(_U('service_not'))
-				isOnDuty = false
-				return false
+				playerInService = false
 			else
-				isOnDuty = true
-				return true
+				playerInService = true
 			end
 		end, 'ambulance')
 	else
-		isOnDuty = true
-		return true
+		playerInService = true
 	end
 end
 
@@ -747,17 +745,18 @@ Citizen.CreateThread(function()
 			ESX.ShowHelpNotification(CurrentActionMsg)
 
 			if IsControlJustReleased(0, 38) then
-				if CurrentAction == 'AmbulanceActions' then
+				checkService()
+				if CurrentAction == 'AmbulanceActions' and playerInService then
 					OpenAmbulanceActionsMenu()
-				elseif CurrentAction == 'Pharmacy' then
+				elseif CurrentAction == 'Pharmacy' and playerInService then
 					OpenPharmacyMenu()
-				elseif CurrentAction == 'Vehicles' then
+				elseif CurrentAction == 'Vehicles' and playerInService then
 					OpenVehicleSpawnerMenu('car', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
-				elseif CurrentAction == 'Helicopters' then
+				elseif CurrentAction == 'Helicopters' and playerInService then
 					OpenVehicleSpawnerMenu('helicopter', CurrentActionData.hospital, CurrentAction, CurrentActionData.partNum)
 				elseif CurrentAction == 'FastTravelsPrompt' then
 					FastTravel(CurrentActionData.to, CurrentActionData.heading)				
-				elseif CurrentAction == 'menu_armory' then
+				elseif CurrentAction == 'menu_armory' and playerInService then
 					OpenArmoryMenu(CurrentActionData.hospital)
 				end
 				CurrentAction = nil
@@ -765,7 +764,10 @@ Citizen.CreateThread(function()
 
 		elseif ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and not isDead then
 			if IsControlJustReleased(0, 167) then
-				OpenMobileAmbulanceActionsMenu()
+				checkService()
+				if playerInService then
+					OpenMobileAmbulanceActionsMenu()
+				end
 			end
 		else
 			Citizen.Wait(500)
