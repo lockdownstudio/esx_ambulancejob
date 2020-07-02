@@ -725,12 +725,15 @@ function checkService()
 		ESX.TriggerServerCallback('esx_service:isInService', function(isInService)
 			if not isInService then
 				ESX.ShowNotification(_U('service_not'))
+				isOnDuty = false
 				return false
 			else
+				isOnDuty = true
 				return true
 			end
 		end, 'ambulance')
 	else
+		isOnDuty = true
 		return true
 	end
 end
